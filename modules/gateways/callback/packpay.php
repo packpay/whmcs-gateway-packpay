@@ -69,7 +69,7 @@ if(!$GATEWAY['type']) die('Module Not Activated');
 
 $token = getToken($GATEWAY["refresh_token"], $GATEWAY["client_id"], $GATEWAY["secret_id"]);
 $payInfo = getPayInfo($_GET['reference_code'], $_GET['invoiceid'], $token);
-$Amount = $payInfo->data[0]->amount;
+$Amount = $payInfo->data[0]->initAmount;
 $invoiceid = $_GET['invoiceid'];
 $transid = $_GET['reference_code'];
 $invoiceid = checkCbInvoiceID($invoiceid, $GATEWAY['name']); # Checks invoice ID is a valid invoice number or ends processing
